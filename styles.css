@@ -52,6 +52,8 @@ h1 { max-width: 850px; margin-bottom: 1.65rem; font-size: clamp(3.2rem, 5.6vw, 6
 .button:hover { transform: translateY(-2px); }
 .button-primary { color: var(--ink); background: var(--lime); }
 .button-primary:hover { background: #e3ff91; }
+.button-secondary { border: 1px solid var(--ink); color: var(--ink); background: transparent; }
+.button-secondary:hover { background: var(--white); }
 .text-link { color: var(--white); font-weight: 700; text-decoration: none; }
 .text-link span { margin-left: .3rem; }
 .hero-location { margin: 3.25rem 0 0; color: #acc1d8; font-size: .85rem; line-height: 1.6; }
@@ -114,7 +116,7 @@ h4 { margin-bottom: .5rem; font-size: .82rem; line-height: 1.4; font-weight: 800
 
 .demos-section { background: #eaf0f5; }
 .demos-section .eyebrow { color: #346190; }
-.demo-card-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1.4rem; }
+.demo-card-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1.4rem; }
 .demo-card { border: 1px solid #b8c9d8; background: var(--white); }
 .demo-card-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 1rem; padding: 1rem 1.4rem; border-bottom: 1px solid #b8c9d8; color: #41648b; font-size: .77rem; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; }
 .demo-card-body { display: flex; flex-direction: column; align-items: flex-start; min-height: 280px; padding: clamp(1.6rem, 3vw, 3rem); }
@@ -214,6 +216,7 @@ h4 { margin-bottom: .5rem; font-size: .82rem; line-height: 1.4; font-weight: 800
 .transfer-grid p { margin-bottom: 0; color: var(--muted); font-size: .97rem; }
 .project-demo-link { padding-block: clamp(3rem, 5vw, 5rem); background: #eaf0f5; }
 .project-demo-link .shell { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 2rem 4rem; }
+.project-demo-actions { display: flex; flex-wrap: wrap; gap: .8rem; }
 .project-demo-link .eyebrow { color: #346190; }
 .project-demo-link h2 { margin-bottom: .7rem; font-size: clamp(2rem, 3vw, 3rem); }
 .project-demo-link p:last-child { max-width: 570px; margin-bottom: 0; color: var(--muted); }

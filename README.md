@@ -13,6 +13,7 @@ A static, multi-page portfolio for job applications. The homepage gives a quick 
 | `projects/education-scale.html` | Program management, multi-site operations, nonprofit/education roles |
 | `demos/route-lab.html` | Fictional, interactive reconstruction of proximity-based volunteer routing |
 | `demos/operations-system.html` | Fictional enhancement tracker and knowledge hub concept |
+| `demos/report-reconciliation.html` | Fictional Salesforce-to-SharePoint and website-publication reconciliation workflow |
 
 ## Edit the site
 
