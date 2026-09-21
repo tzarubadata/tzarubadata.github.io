@@ -132,6 +132,13 @@
     const body = document.getElementById('route-rows');
     body.replaceChildren();
     const times = routes.map(routeMinutes);
+    const rankedByStops = routes
+      .map((route, index) => ({ index, stops: route.length }))
+      .sort((a, b) => b.stops - a.stops);
+    const vehicleFit = Array(routes.length).fill('Standard vehicle');
+    const edgeCount = Math.max(1, Math.floor(routes.length / 3));
+    rankedByStops.slice(0, edgeCount).forEach(({ index }) => { vehicleFit[index] = 'Larger cargo'; });
+    rankedByStops.slice(-edgeCount).forEach(({ index }) => { vehicleFit[index] = 'Limited capacity'; });
     routes.forEach((route, index) => {
       const tr = document.createElement('tr');
       const driver = document.createElement('th');
@@ -145,9 +152,11 @@
       count.textContent = String(route.length);
       const duration = document.createElement('td');
       duration.textContent = `${Math.round(times[index])} min`;
+      const vehicle = document.createElement('td');
+      vehicle.textContent = vehicleFit[index];
       const sequence = document.createElement('td');
       sequence.textContent = route.map(pad).join(' → ');
-      tr.append(driver, count, duration, sequence);
+      tr.append(driver, count, duration, vehicle, sequence);
       body.appendChild(tr);
     });
     const spread = Math.round(Math.max(...times) - Math.min(...times));
