@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#10213b" />
+    <meta name="description" content="Explore a fictional reconstruction of Tyler Zaruba’s Salesforce, Power Automate, SharePoint, Python, and Excel document-status workflow." />
+    <link rel="canonical" href="https://tzarubadata.github.io/demos/report-reconciliation.html" />
+    <title>Publication reconciliation lab | Tyler Zaruba</title>
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="demo.css" />
+    <script src="report-reconciliation.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header"><div class="shell header-inner"><a class="wordmark" href="../index.html" aria-label="Tyler Zaruba, home"><span class="mark" aria-hidden="true">TZ</span><span>Tyler Zaruba</span></a><nav aria-label="Main navigation"><a href="../index.html#work">Projects</a><a href="../index.html#demos">Demos</a><a class="nav-contact" href="../index.html#contact">Contact <span aria-hidden="true">↗</span></a></nav></div></header>
+
+    <main id="main">
+      <section class="demo-intro"><div class="shell"><a class="back-link" href="../projects/documentation-lifecycle.html">← Documentation case study</a><p class="eyebrow">Interactive reconstruction · Systems integration</p><h1>Publication reconciliation lab</h1><p>Follow two data paths into one comparison workbook: a scheduled Salesforce report represents what should be current, while a Python crawler records what is actually posted on the website.</p><div class="demo-disclosure"><strong>Fictional demonstration.</strong> Every document, version, status, timestamp, and exception below is invented. The page illustrates the workflow pattern without using employer files, customer information, credentials, or original code.</div></div></section>
+
+      <section class="demo-workspace reconciliation-workspace" aria-labelledby="workspace-title"><div class="shell"><div class="demo-workspace-heading"><div><p class="eyebrow">Run the workflow</p><h2 id="workspace-title">Move from source reports to exceptions.</h2></div><p>Complete the four stages in order. The final refresh compares expected and posted records.</p></div>
+        <ol class="pipeline" aria-label="Reconciliation workflow">
+          <li class="pipeline-step" id="stage-salesforce"><span>01</span><strong>Salesforce</strong><small>Scheduled report</small></li>
+          <li class="pipeline-arrow" aria-hidden="true">→</li>
+          <li class="pipeline-step" id="stage-sharepoint"><span>02</span><strong>Power Automate</strong><small>Inbox → SharePoint</small></li>
+          <li class="pipeline-arrow" aria-hidden="true">+</li>
+          <li class="pipeline-step" id="stage-crawler"><span>03</span><strong>Python crawler</strong><small>Website snapshot</small></li>
+          <li class="pipeline-arrow" aria-hidden="true">→</li>
+          <li class="pipeline-step" id="stage-excel"><span>04</span><strong>Excel</strong><small>Refresh & compare</small></li>
+        </ol>
+
+        <div class="reconciliation-layout">
+          <section class="workflow-controls" aria-labelledby="controls-title"><p class="eyebrow">Workflow controls</p><h3 id="controls-title">Process the fictional data</h3><button class="workflow-button" id="run-salesforce" type="button"><span>01</span><span><strong>Run scheduled report</strong><small>Receive the expected-state extract</small></span></button><button class="workflow-button" id="run-sharepoint" type="button" disabled><span>02</span><span><strong>Process inbox attachment</strong><small>Power Automate stores the latest file</small></span></button><button class="workflow-button" id="run-crawler" type="button" disabled><span>03</span><span><strong>Run website crawler</strong><small>Create the actual-state extract</small></span></button><button class="workflow-button" id="run-excel" type="button" disabled><span>04</span><span><strong>Refresh comparison workbook</strong><small>Join records and flag exceptions</small></span></button><button class="reset-demo" id="reset-reconciliation" type="button">Reset fictional demo data</button></section>
+
+          <section class="workflow-console" aria-labelledby="console-title"><div class="workflow-console-head"><div><p class="eyebrow">Run log</p><h3 id="console-title">What the system is doing</h3></div><span id="workflow-state">Ready</span></div><ol id="workflow-log" aria-live="polite"><li>Select “Run scheduled report” to begin.</li></ol></section>
+        </div>
+
+        <section class="comparison-panel" id="comparison-panel" aria-labelledby="comparison-title" hidden><div class="comparison-heading"><div><p class="eyebrow">Excel comparison view</p><h3 id="comparison-title">Expected versus actually posted</h3></div><label for="comparison-filter">Show<select id="comparison-filter"><option value="all">All records</option><option value="exception">Exceptions only</option><option value="match">Matches only</option></select></label></div><div class="demo-stat-grid"><div><strong id="expected-count">0</strong><span>expected records</span></div><div><strong id="posted-count">0</strong><span>posted records found</span></div><div><strong id="exception-count">0</strong><span>exceptions to review</span></div></div><div class="comparison-table-wrap"><table><thead><tr><th scope="col">Document</th><th scope="col">Salesforce: should be current</th><th scope="col">Crawler: actually posted</th><th scope="col">Comparison</th><th scope="col">Next action</th></tr></thead><tbody id="comparison-rows"></tbody></table></div><p class="comparison-note">The workbook identifies possible discrepancies for human review. It does not decide whether a publication is correct or update the website automatically.</p></section>
+      </div></section>
+
+      <section class="demo-method section-pad"><div class="shell"><p class="eyebrow">Why this workflow matters</p><h2>Two sources answer two different questions.</h2><div class="transfer-grid constraint-grid"><div><h3>Expected state</h3><p>The scheduled Salesforce report supplies the current internal record: document identifier, approved version, and expected status.</p></div><div><h3>Durable handoff</h3><p>Power Automate moves the emailed report into SharePoint, giving the Excel workbook a stable place to find the most recent extract.</p></div><div><h3>Observed state</h3><p>The Python crawler examines the public website and produces a separate Excel extract describing what is actually posted.</p></div><div><h3>Exception-focused review</h3><p>Refreshing the comparison workbook joins the two outputs and directs people to missing, outdated, or status-mismatched records.</p></div></div><p class="method-footnote">The real workflow uses Salesforce scheduled reporting, email, Power Automate, SharePoint, Excel, and a Python crawler. This reconstruction simplifies the file handling and comparison logic so the design can be shared safely.</p><a class="case-link" href="../projects/documentation-lifecycle.html">Read the documentation systems case study <span aria-hidden="true">↗</span></a></div></section>
+    </main>
+
+    <footer class="site-footer"><div class="shell footer-inner"><span>© <span id="year">2026</span> Tyler Zaruba</span><span>All demo records are fictional</span><a href="../index.html#demos">All demos ↑</a></div></footer>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  </body>
+</html>
