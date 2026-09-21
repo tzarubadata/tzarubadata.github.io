@@ -208,6 +208,7 @@ h4 { margin-bottom: .5rem; font-size: .82rem; line-height: 1.4; font-weight: 800
 .transfer-section { background: var(--white); }
 .transfer-section h2 { max-width: 850px; margin-bottom: 3rem; }
 .transfer-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1.4rem; }
+.constraint-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
 .transfer-grid > div { padding: clamp(1.5rem, 2.5vw, 2.5rem); border: 1px solid var(--rule); border-top: 4px solid var(--ink); }
 .transfer-grid h3 { margin-bottom: .9rem; font-size: clamp(1.35rem, 1.8vw, 1.7rem); line-height: 1.2; }
 .transfer-grid p { margin-bottom: 0; color: var(--muted); font-size: .97rem; }
